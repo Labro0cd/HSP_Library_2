@@ -33,12 +33,11 @@ public class Book {
     }
 
     @Override
-    public boolean equals(Object other) {
-        if (this.getClass() != other.getClass()) {
-            return false;
-        }
-        Book c2 = (Book) other;
-        return author.equals(((Book) other).author);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return yearRelease == book.yearRelease && Objects.equals(titleBook, book.titleBook) && Objects.equals(author, book.author);
     }
 
     @Override
